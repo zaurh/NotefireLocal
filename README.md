@@ -24,4 +24,4 @@ Navigation (for navigation between composables)
 
 Dagger Hilt (for Dependency Injection)
 
-GSON (for passing "Notes" to another composable)
+Material 3 and some 3rd pardy libraries.
