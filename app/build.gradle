@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.random'
+    namespace 'com.example.notefire_local'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.random"
+        applicationId "com.example.notefire_local"
         minSdk 24
         targetSdk 33
         versionCode 1
