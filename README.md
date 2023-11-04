@@ -24,4 +24,4 @@ Navigation (for navigation between composables)
 
 Dagger Hilt (for Dependency Injection)
 
-Material 3 and some 3rd pardy libraries.
+Material3 and some 3rd pardy libraries.
