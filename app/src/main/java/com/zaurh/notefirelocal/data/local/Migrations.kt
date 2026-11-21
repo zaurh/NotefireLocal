@@ -4,7 +4,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 /**
- * 1.0.x → 2.0: keeps every note with all of its formatting (colors, font sizes, bold, italic,
+ * 1.0.x → 1.1: keeps every note with all of its formatting (colors, font sizes, bold, italic,
  * underline, strikethrough) and its date, and adds pinning. See [migrateLegacyBackground] for how
  * the old default colors are treated.
  */
