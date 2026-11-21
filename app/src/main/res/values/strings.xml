@@ -1,3 +1,54 @@
 <resources>
     <string name="app_name">Notefire</string>
+
+    <!-- Notes list -->
+    <string name="search_notes">Search your notes</string>
+    <string name="clear_search">Clear search</string>
+    <string name="new_note">New note</string>
+    <string name="pinned">Pinned</string>
+    <string name="others">Others</string>
+    <string name="untitled">Untitled</string>
+    <string name="empty_notes_title">No notes yet</string>
+    <string name="empty_notes_message">Tap \"New note\" to write your first one. Everything stays on your phone, no internet needed.</string>
+    <string name="empty_search_title">Nothing found</string>
+    <string name="empty_search_message">No notes match your search.</string>
+    <string name="note_deleted">Note deleted</string>
+    <string name="undo">Undo</string>
+    <string name="pin">Pin</string>
+    <string name="unpin">Unpin</string>
+    <string name="delete">Delete</string>
+    <string name="show_as_list">Show as list</string>
+    <string name="show_as_grid">Show as grid</string>
+    <string name="more_options">More options</string>
+    <string name="theme">Theme</string>
+    <string name="theme_system">System default</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="close">Close</string>
+    <string name="rate_app">Rate Notefire</string>
+    <string name="contact_developer">Contact developer</string>
+
+    <!-- Editor -->
+    <string name="back">Back</string>
+    <string name="title_hint">Title</string>
+    <string name="content_hint">Start writing…</string>
+    <string name="text_style">Text style</string>
+    <string name="background">Background</string>
+    <string name="target_title">Title</string>
+    <string name="target_text">Text</string>
+    <string name="bold">Bold</string>
+    <string name="italic">Italic</string>
+    <string name="underline">Underline</string>
+    <string name="strikethrough">Strikethrough</string>
+    <string name="font_size">Font size</string>
+    <string name="automatic_color">Automatic</string>
+    <string name="default_background">Default</string>
+    <string name="custom_color">Custom color</string>
+    <string name="pick_color">Pick a color</string>
+    <string name="select">Select</string>
+    <string name="cancel">Cancel</string>
+    <string name="share_note">Share note</string>
+    <string name="edited_at">Edited %1$s</string>
+    <string name="note_not_found">This note no longer exists</string>
+    <string name="note_save_failed">Couldn\'t save the note</string>
 </resources>
