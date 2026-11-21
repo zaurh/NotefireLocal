@@ -9,28 +9,24 @@ Notefire Local is a note-taking app where you can take notes offline. You don't 
 ![App Screenshot](https://i.hizliresim.com/dfo0nnr.png)
 
 
-# This app contains: 
+# Features
 
+- Write notes that save themselves as you type, fully offline
+- Style the title and the text separately: color, font size, bold, italic, underline, strikethrough
+- Any background color: quick picks or a full color wheel
+- Pin important notes and share them to other apps
+- Search, grid or list view, undo after delete
+- Light, dark or system theme
+- The note card grows into the editor (shared element transition)
 
-Kotlin
+# Tech
 
-Jetpack compose
-
-MVVM
-
-Clean Architecture
-
-Shared Elemenent Transition (Sharing notes between main screen and edit screen)
-
-Room (Saving and retrieving notes from local database)
-
-Navigation (Navigating between composables)
-
-Dagger Hilt (Dependency Injection)
-
-Material3 and some 3rd-party libraries.
-
-[Color Picker](https://github.com/skydoves/ColorPickerView)
+- Kotlin, Jetpack Compose, Material 3
+- **MVI**: each screen has a `Contract` (immutable `State`, `Intent`s, one-off `Effect`s), a `ViewModel` built on `MviViewModel`, and a stateless screen
+- Clean Architecture layers: `domain` (models, repository interfaces), `data` (Room, DataStore), `presentation`
+- Room with schema export and tested migrations (notes from 1.x are kept on update)
+- DataStore Preferences, Hilt, type-safe Navigation Compose, Coroutines/Flow
+- Unit tests for ViewModels and an instrumented migration test
 
 ## License
 ```

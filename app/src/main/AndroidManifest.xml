@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:name = ".NotefireLocalApp"
+        android:name=".NotefireLocalApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,12 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher2_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NotefireLocal"
-        tools:targetApi="31">
+        android:theme="@style/Theme.NotefireLocal">
         <activity
-            android:name="com.zaurh.notefirelocal.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.NotefireLocal">
+            android:theme="@style/Theme.NotefireLocal.Starting"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,5 +23,13 @@
             </intent-filter>
         </activity>
     </application>
+
+    <!-- Lets the "Contact developer" button find email apps on Android 11+. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="mailto" />
+        </intent>
+    </queries>
 
 </manifest>

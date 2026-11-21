@@ -1,0 +1,136 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "5462d128f6b28adac2bd919f68ed878f",
+    "entities": [
+      {
+        "tableName": "notes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`note_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `content` TEXT NOT NULL, `background_color` INTEGER, `title_color` INTEGER, `title_font_size` REAL NOT NULL, `title_bold` INTEGER NOT NULL, `title_italic` INTEGER NOT NULL, `title_underline` INTEGER NOT NULL, `title_line_through` INTEGER NOT NULL, `content_color` INTEGER, `content_font_size` REAL NOT NULL, `content_bold` INTEGER NOT NULL, `content_italic` INTEGER NOT NULL, `content_underline` INTEGER NOT NULL, `content_line_through` INTEGER NOT NULL, `is_pinned` INTEGER NOT NULL, `created_at` INTEGER NOT NULL, `updated_at` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "note_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "backgroundColor",
+            "columnName": "background_color",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "titleColor",
+            "columnName": "title_color",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "titleFontSize",
+            "columnName": "title_font_size",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titleBold",
+            "columnName": "title_bold",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titleItalic",
+            "columnName": "title_italic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titleUnderline",
+            "columnName": "title_underline",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titleLineThrough",
+            "columnName": "title_line_through",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentColor",
+            "columnName": "content_color",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "contentFontSize",
+            "columnName": "content_font_size",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentBold",
+            "columnName": "content_bold",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentItalic",
+            "columnName": "content_italic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentUnderline",
+            "columnName": "content_underline",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contentLineThrough",
+            "columnName": "content_line_through",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isPinned",
+            "columnName": "is_pinned",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "created_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updated_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "note_id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5462d128f6b28adac2bd919f68ed878f')"
+    ]
+  }
+}

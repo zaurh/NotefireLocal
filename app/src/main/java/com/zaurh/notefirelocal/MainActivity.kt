@@ -1,58 +1,45 @@
 package com.zaurh.notefirelocal
 
-import android.os.Build
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
-import androidx.annotation.RequiresApi
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.collectAsState
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import com.zaurh.notefirelocal.data_store.StoreSettings
-import com.zaurh.notefirelocal.navigation.MyAnimatedNavigation
-import com.zaurh.notefirelocal.ui.theme.NotefireLocalTheme
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.zaurh.notefirelocal.presentation.navigation.NotefireNavHost
+import com.zaurh.notefirelocal.presentation.theme.NotefireTheme
+import com.zaurh.notefirelocal.presentation.theme.isDark
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @RequiresApi(Build.VERSION_CODES.O)
+
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen().setKeepOnScreenCondition { viewModel.themeMode.value == null }
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
-            val context = LocalContext.current
-            val dataStore = StoreSettings(context)
-            var darkTheme by remember { mutableStateOf(false) }
-            val savedDarkMode = dataStore.getDarkMode.collectAsState(initial = false)
-            val scope = rememberCoroutineScope()
+            val themeMode by viewModel.themeMode.collectAsStateWithLifecycle()
+            val mode = themeMode ?: return@setContent
+            val dark = mode.isDark()
 
-            NotefireLocalTheme(darkTheme = savedDarkMode.value ?: false) {
+            // Keep status/navigation bar icons readable when the app theme differs from the system's.
+            DisposableEffect(dark) {
+                val style = SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT) { dark }
+                enableEdgeToEdge(statusBarStyle = style, navigationBarStyle = style)
+                onDispose {}
+            }
 
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.surface
-                ) {
-                    MyAnimatedNavigation(
-                        darkTheme = savedDarkMode.value ?: false
-                    ){
-                        scope.launch {
-                            darkTheme = !(savedDarkMode.value ?: false)
-                            dataStore.saveDarkMode(darkTheme)
-                        }
-                    }
-                }
+            NotefireTheme(darkTheme = dark) {
+                NotefireNavHost()
             }
         }
     }
-
-
 }
